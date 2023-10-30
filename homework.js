@@ -18,45 +18,70 @@ class hamster{
 class person {
     constructor(name, age, height, weight, mood, hamster, bankAccount){ 
         this.name = name;
-        this.age = age;
-        this.height = height;
-        this.weight = weight;
-        this.mood = mood;
-        this.hamsters = hamster
-        this.bankAccount = bankAccount
+        this.age = 0;
+        this.height = 0;
+        this.weight = 0;
+        this.mood = 0;
+        this.hamsters = []
+        this.bankAccount = 40
     };
     getName(){
         return this.name
     };
     getAge(){
-        return this.age + " years old"
+        return this.age
     };
     getWeight(){
-        return this.weight + " lbs"
+        return this.weight
     }
     greet(){
-        return "Hi my name is " + this.name
-    };
+        console.log(`I am ${this.name} hello`)
+    }
     eat(){
-        return (this.weight = this.weight + 3)+ " lbs" 
+        this.weight++
+        this.mood++
     };
     excercise(){
-        return (this.weight = this.weight - 3) + " lbs"
+        this.weight--
     };
     ageUp(){
-        return console.log(this.Age + 1 + " years old"), console.log(this.height + 3 + " cm"), console.log(this.mood - 5 + " Mood Points"), console.log(this.bankAccount + 10 + " dollars")
+        this.age++
+        this.height++
+        this.weight++
+        this.mood--
+        this.bankAccount+=10
     };
     buyHamster(){
-        return getPrice(this.value)
+        this.hamsters.push(hamster)
+        this.mood+=10
+        this.bankAccount-=hamster.getPrice
     }
 }
 
-const Hampter = new hamster("", "Gus", 10);
-// console.log(Hampter.wheelRun);
-
 //height is measured in cm for ease of coding, and weight is in lbs
 const Timmy = new person ("Timmy", 5, 10, 109, 43, 0, 0, 20)
-console.log(Timmy.excercise)
+for (let i=0; i <5; i++){
+    Timmy.ageUp()
+}
+for (let i=0; i <5; i++){
+    Timmy.ageUp()
+}
+for (let i=0; i <5; i++){
+    Timmy.excercise()
+}
+for (let i=0; i <9; i++){
+    Timmy.ageUp()
+}
+const Gus = new hamster('Gus');
+Gus.owner = 'Timmy'
+Timmy.buyHamster(Gus)
+
+for (let i=0; i <15; i++){
+    Timmy.ageUp()
+}
+Timmy.eat()
+Timmy.excercise()
+console.log(Timmy)
 
 // class Dinner {
 //     constructor(appetizzer, entree, dessert){
